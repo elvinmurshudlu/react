@@ -1,12 +1,12 @@
-import { type IFormComponent } from "@/components/FormBuilder/type"
-import { Select, type SelectProps } from "antd"
-import ComponentWrapper from "@/components/FormBuilder/ComponentWrapper/InputWrapper"
+import { type IFormComponent } from "@/shared/FormBuilder/type"
+import { TreeSelect, type TreeSelectProps } from "antd"
+import ComponentWrapper from "@/shared/FormBuilder/ComponentWrapper/InputWrapper"
 import { Controller, useFormContext } from "react-hook-form"
 import clsx from "clsx"
 
-type FormSelectProps = IFormComponent & SelectProps
+type FormTreeSelectProps = IFormComponent & TreeSelectProps
 
-function FormSelect({
+function FormTreeSelect({
     className,
     label,
     fieldName,
@@ -14,7 +14,7 @@ function FormSelect({
     classNames,
     showOn,
     ...inputProps
-}: FormSelectProps) {
+}: FormTreeSelectProps) {
     const { control } = useFormContext()
 
     return (
@@ -26,15 +26,20 @@ function FormSelect({
             showOn={showOn}
         >
             <Controller
-                render={({ field }) => {
+                render={({
+                    field,
+                    fieldState: { error },
+                }) => {
                     return (
-                        <Select
+                        <TreeSelect
                             className={clsx(
                                 classNames,
                                 "w-full",
                             )}
                             id={fieldName}
                             {...field}
+                            status={error && "error"}
+                            allowClear={true}
                             {...inputProps}
                         />
                     )
@@ -46,4 +51,4 @@ function FormSelect({
     )
 }
 
-export default FormSelect
+export default FormTreeSelect

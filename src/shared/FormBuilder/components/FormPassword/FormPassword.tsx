@@ -1,11 +1,11 @@
-import { type IFormComponent } from "@/components/FormBuilder/type"
+import { type IFormComponent } from "@/shared/FormBuilder/type"
 import { Input, type InputProps } from "antd"
-import ComponentWrapper from "@/components/FormBuilder/ComponentWrapper/InputWrapper"
+import ComponentWrapper from "@/shared/FormBuilder/ComponentWrapper/InputWrapper"
 import { Controller, useFormContext } from "react-hook-form"
 
 type FormInputProps = IFormComponent & InputProps
 
-function FormInput({
+function FormPassword({
     className,
     label,
     fieldName,
@@ -29,7 +29,7 @@ function FormInput({
                     fieldState: { error },
                 }) => {
                     return (
-                        <Input
+                        <Input.Password
                             status={error && "error"}
                             id={fieldName}
                             {...field}
@@ -44,4 +44,4 @@ function FormInput({
     )
 }
 
-export default FormInput
+export default FormPassword

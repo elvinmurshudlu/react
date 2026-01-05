@@ -1,13 +1,13 @@
-import { type IFormRangeComponent } from "@/components/FormBuilder/type"
+import { type IFormRangeComponent } from "@/shared/FormBuilder/type"
 import { DatePicker } from "antd"
-import ComponentWrapper from "@/components/FormBuilder/ComponentWrapper/InputWrapper"
+import ComponentWrapper from "@/shared/FormBuilder/ComponentWrapper/InputWrapper"
 import { useFormContext } from "react-hook-form"
 import dayjs from "dayjs"
 import type { RangePickerProps } from "antd/es/date-picker"
 import {
     default_time_format,
     showFormat,
-} from "@/components/FormBuilder/components/Date/format"
+} from "@/shared/FormBuilder/components/Date/format"
 
 type FormDatePickerProps = IFormRangeComponent &
     RangePickerProps

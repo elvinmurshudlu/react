@@ -1,12 +1,12 @@
-import { type IFormComponent } from "@/components/FormBuilder/type"
+import { type IFormComponent } from "@/shared/FormBuilder/type"
 import { DatePicker, type DatePickerProps } from "antd"
-import ComponentWrapper from "@/components/FormBuilder/ComponentWrapper/InputWrapper"
+import ComponentWrapper from "@/shared/FormBuilder/ComponentWrapper/InputWrapper"
 import { Controller, useFormContext } from "react-hook-form"
 import dayjs from "dayjs"
 import {
     default_time_format,
     showFormat,
-} from "@/components/FormBuilder/components/Date/format"
+} from "@/shared/FormBuilder/components/Date/format"
 
 type FormDatePickerProps = IFormComponent & DatePickerProps
 
@@ -29,9 +29,13 @@ function FormDatePicker({
             showOn={showOn}
         >
             <Controller
-                render={({ field }) => {
+                render={({
+                    field,
+                    fieldState: { error },
+                }) => {
                     return (
                         <DatePicker
+                            status={error && "error"}
                             placeholder={label}
                             format={
                                 (props.format as string) ??

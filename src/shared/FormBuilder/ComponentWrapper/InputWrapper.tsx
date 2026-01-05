@@ -7,7 +7,7 @@ import {
 import clsx from "clsx"
 import { ErrorMessage } from "@hookform/error-message"
 import { useFormContext } from "react-hook-form"
-import { type IFormComponent } from "@/components/FormBuilder/type"
+import { type IFormComponent } from "@/shared/FormBuilder/type"
 
 function ComponentWrapper({
     className,
