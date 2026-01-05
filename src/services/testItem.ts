@@ -5,6 +5,7 @@ import {
 } from "@tanstack/react-query"
 import { axiosClient } from "@/core/interceptor/interceptor.ts"
 import { api_urls } from "@/core/url/api_url.ts"
+import type { ITest } from "@/types/testType.ts"
 
 const testItemKey = "testItemKey"
 
@@ -19,7 +20,9 @@ export function useGetTestItemList() {
 export function useGetTestItemById(id: number) {
     return useQuery({
         queryFn: () =>
-            axiosClient.get(api_urls.testItemById(id)),
+            axiosClient.get<ITest>(
+                api_urls.testItemById(id),
+            ),
         queryKey: [testItemKey, id],
     })
 }
