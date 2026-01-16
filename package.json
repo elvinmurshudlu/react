@@ -9,7 +9,7 @@
         "lint": "eslint .",
         "preview": "vite preview",
         "prepare": "husky",
-        "type-check": "tsc --noEmit"
+        "type-check": "tsc -b --noEmit "
     },
     "dependencies": {
         "@hookform/error-message": "^2.0.1",

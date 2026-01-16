@@ -9,8 +9,7 @@ import type { ITest } from "@/types/testType.ts"
 
 const testItemKey = "testItemKey"
 
-export function useGetTestItemList(username: string) {
-    const name = username.name
+export function useGetTestItemList() {
     return useQuery({
         queryFn: () =>
             axiosClient.get(api_urls.testItemList),
