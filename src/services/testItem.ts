@@ -12,7 +12,9 @@ const testItemKey = "testItemKey"
 export function useGetTestItemList() {
     return useQuery({
         queryFn: () =>
-            axiosClient.get(api_urls.testItemList),
+            axiosClient.get(
+                api_urls.testItemList as number,
+            ),
         queryKey: [testItemKey],
     })
 }
